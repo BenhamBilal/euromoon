@@ -4,49 +4,58 @@ import persons.staffMembers.Driver;
 import persons.staffMembers.Stewart;
 import trains.Train;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Trip {
 
-    private Station departureStation;
-    private Station arrivalStation;
-    private LocalDateTime tripTime;
+    private String departureStation;
+    private String arrivalStation;
+    private LocalTime tripTime;
+    private LocalDate date;
     private Train train;
     private List<Driver> driverList;
     private List<Stewart> stewartList;
 
-    public Trip(Station departureStation, Station arrivalStation, LocalDateTime tripTime, Train train) {
+    public Trip(String departureStation, String arrivalStation, LocalTime tripTime, LocalDate date, Train train) {
         this.departureStation = departureStation;
         this.arrivalStation = arrivalStation;
         this.tripTime = tripTime;
+        this.date = date;
         this.train = train;
         this.driverList = new ArrayList<Driver>();
         this.stewartList = new ArrayList<Stewart>();
     }
+    public Trip(String departureStation, String arrivalStation, LocalDate date, LocalTime tripTime) {
+        this.departureStation = departureStation;
+        this.arrivalStation = arrivalStation;
+        this.date = date;
+        this.tripTime = tripTime;
+    }
 
-    public Station getDepartureStation() {
+    public String getDepartureStation() {
         return departureStation;
     }
 
-    public void setDepartureStation(Station departureStation) {
+    public void setDepartureStation(String departureStation) {
         this.departureStation = departureStation;
     }
 
-    public Station getArrivalStation() {
+    public String getArrivalStation() {
         return arrivalStation;
     }
 
-    public void setArrivalStation(Station arrivalStation) {
+    public void setArrivalStation(String arrivalStation) {
         this.arrivalStation = arrivalStation;
     }
 
-    public LocalDateTime getTripTime() {
+    public LocalTime getTripTime() {
         return tripTime;
     }
 
-    public void setTripTime(LocalDateTime tripTime) {
+    public void setTripTime(LocalTime tripTime) {
         this.tripTime = tripTime;
     }
 
@@ -79,13 +88,13 @@ public class Trip {
     }
 
 
-
     @Override
     public String toString() {
         return "Trip{" +
                 "departureStation=" + departureStation +
                 ", arrivalStation=" + arrivalStation +
                 ", tripTime=" + tripTime +
+                ", date=" + date +
                 ", train=" + train +
                 ", driverList=" + driverList +
                 ", stewartList=" + stewartList +
