@@ -20,7 +20,7 @@ public class euromoonApp {
     List<Passenger> passengerList = new ArrayList<Passenger>();
     List<Trip> tripList = new ArrayList<>();
     List<Train> trainList = new ArrayList<>();
-    List<StaffMember> staffMemberList = new ArrayList<>();
+   List<Stewart> stewardList = new ArrayList<>();
     List<String> certificationList = new ArrayList<>();
 
     Scanner scan = new Scanner(System.in);
@@ -124,60 +124,38 @@ public class euromoonApp {
 
         LocalDate date = LocalDate.parse(scan.nextLine(), formatDate);
 
-        System.out.println("Om hoelaat wil je riezen ? :(HH-mm)");
+        System.out.println("Om hoelaat wil je reizen ? :(HH-mm)");
 
         DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH-mm");
 
         LocalTime time = LocalTime.parse(scan.nextLine(), formatTime);
 
-        System.out.println("Wat is de naam van de bestuurder ? :");
+        while (stewardList.size() < 3) {
+            System.out.println("Naam van steward (" + (stewardList.size() + 1) + "):");
+            String name = scan.nextLine();
 
-        String driverName = scan.nextLine();
+            Stewart stewart = new Stewart(name);
 
-        persons.StaffMember driver = new Driver(driverName);
+            do {
+                System.out.println("Certificaat:");
+                stewart.addCertification(scan.nextLine());
 
-        do {
-            System.out.println("Wat zijn de certificaat : ?");
+                System.out.println("Nog een? (ja/nee)");
+            } while (!scan.nextLine().equalsIgnoreCase("nee"));
 
-            String certificaties = scan.nextLine();
+            stewardList.add(stewart);
+        }
 
-            driver.addCertification(certificaties);
+        System.out.println("Naam van Driver : ");
 
-            System.out.println("Zijn er nog? (ja/nee)");
+        String driverNaam = scan.nextLine();
 
-            String areMoreCertification = scan.nextLine();
-            if (areMoreCertification.equalsIgnoreCase("nee")) {
-                break;
-            }
-        } while (true);
-
-        staffMemberList.add(driver);
-
+        Driver driver = new Driver(driverNaam);
 
 
-        System.out.println("Wat is de naam van de Stewart ? :");
-
-        String stewartName = scan.nextLine();
-
-        persons.StaffMember stewart = new Stewart(stewartName);
-
-        do {
-            System.out.println("Wat zijn de certificaat : ?");
-
-            String certificaties = scan.nextLine();
-
-            certificationList.add(certificaties);
-
-            System.out.println("Zijn er nog? (ja/nee)");
-
-            String areMoreCertification = scan.nextLine();
-            if (areMoreCertification.equalsIgnoreCase("nee")) {
-                break;
-            }
-        } while (true);
 
 
-        Trip trip = new Trip(departureStation, arrivalStation, date, time);
+        Trip trip = new Trip();
 
         tripList.add(trip);
 

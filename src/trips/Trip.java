@@ -16,23 +16,32 @@ public class Trip {
     private LocalTime tripTime;
     private LocalDate date;
     private Train train;
-    private List<Driver> driverList;
+    private Driver driver;
     private List<Stewart> stewartList;
 
-    public Trip(String departureStation, String arrivalStation, LocalTime tripTime, LocalDate date, Train train) {
+    public Trip(String departureStation,
+                String arrivalStation,
+                LocalDate date,
+                LocalTime tripTime,
+                Train train,
+                Driver driver,
+                List<Stewart> stewartList) {
+
+        if (driver == null) {
+            throw new IllegalArgumentException("Driver is verplicht");
+        }
+
+        if (stewartList == null || stewartList.size() < 3) {
+            throw new IllegalArgumentException("Minstens 3 stewards vereist");
+        }
+
         this.departureStation = departureStation;
         this.arrivalStation = arrivalStation;
-        this.tripTime = tripTime;
         this.date = date;
+        this.tripTime = tripTime;
         this.train = train;
-        this.driverList = new ArrayList<Driver>();
-        this.stewartList = new ArrayList<Stewart>();
-    }
-    public Trip(String departureStation, String arrivalStation, LocalDate date, LocalTime tripTime) {
-        this.departureStation = departureStation;
-        this.arrivalStation = arrivalStation;
-        this.date = date;
-        this.tripTime = tripTime;
+        this.driver = driver;
+        this.stewartList = stewartList;
     }
 
     public String getDepartureStation() {
@@ -67,25 +76,19 @@ public class Trip {
         this.train = train;
     }
 
-    public List<Driver> getDriverList() {
-        return driverList;
-    }
 
-    public void addDriver(Driver driver) {
-        this.driverList.add(driver);
-    }
 
     public List<Stewart> getStewartList() {
         return stewartList;
     }
 
     public void addStewart(Stewart stewart) {
-        this.stewartList.add(stewart);
+        if (stewartList.size() >= 3) {
+            stewartList.add(stewart);
+        }
     }
 
-    public boolean isTripBookable(){
-        return !this.driverList.isEmpty() && this.stewartList.size() > 2;
-    }
+
 
 
     @Override
@@ -96,7 +99,6 @@ public class Trip {
                 ", tripTime=" + tripTime +
                 ", date=" + date +
                 ", train=" + train +
-                ", driverList=" + driverList +
                 ", stewartList=" + stewartList +
                 '}';
     }

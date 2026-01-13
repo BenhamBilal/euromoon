@@ -6,7 +6,7 @@ import java.util.List;
 
 public abstract class StaffMember extends Person {
 
-    ;
+    protected List<String> certificationList;
 
     public StaffMember(String name, String lastName, String IDNumber, LocalDate birthDate) {
         super(name, lastName, IDNumber, birthDate);
@@ -15,6 +15,7 @@ public abstract class StaffMember extends Person {
 
     public StaffMember(String name){
         super(name);
+        this.certificationList = new ArrayList<String>();
     }
 
     public void addCertification(String certification) {
