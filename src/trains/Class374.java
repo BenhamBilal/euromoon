@@ -7,4 +7,13 @@ public class Class374 implements Locomotive{
         return 14;
     }
 
+    public int getcapacity(){
+        return maxCapacityIncludedLuggage;
+    }
+
+    @Override
+    public String toString() {
+        return "Class374";
+    }
+
 }
