@@ -6,11 +6,15 @@ import java.util.List;
 
 public abstract class StaffMember extends Person {
 
-    private List<String> certificationList ;
+    ;
 
     public StaffMember(String name, String lastName, String IDNumber, LocalDate birthDate) {
         super(name, lastName, IDNumber, birthDate);
         this.certificationList = new ArrayList<String>();
+    }
+
+    public StaffMember(String name){
+        super(name);
     }
 
     public void addCertification(String certification) {

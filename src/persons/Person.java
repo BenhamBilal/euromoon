@@ -3,7 +3,7 @@ package persons;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Person {
+public abstract class Person {
 
     private String name;
     private String lastName;
@@ -15,6 +15,10 @@ public class Person {
         this.lastName = lastName;
         this.IDNumber = IDNumber;
         this.birthDate = birthDate;
+    }
+
+    public Person(String name){
+        this.name = name;
     }
 
     public String getName() {
