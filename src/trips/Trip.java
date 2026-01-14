@@ -20,6 +20,7 @@ public class Trip {
     private Driver driver;
     private List<Stewart> stewartList;
     private List<Passenger> passengerList;
+    private TypeClass typeClass;
 
     public Trip(String departureStation, String arrivalStation, LocalDate date, LocalTime tripTime, Train train, Driver driver, List<Stewart> stewartList) {
 

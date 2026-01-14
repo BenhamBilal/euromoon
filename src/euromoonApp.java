@@ -86,6 +86,9 @@ public class euromoonApp {
 
     }
 
+    /**
+     * registreert de passagier en voegd deze in de passagierLijst
+     */
     public void PassengerRegister() {
         Passenger p = creatPassenger();
         passengerList.add(p);
@@ -93,6 +96,10 @@ public class euromoonApp {
 
     }
 
+    /**
+     * Maakt een passagier en vraagt oa: naam , achternaam ,rijksregister nummer, geboorte datum
+     * @return ObjectPassagier aan de hand van constructor
+     */
     public Passenger creatPassenger() {
 
         System.out.println("Naam : ");
@@ -103,6 +110,7 @@ public class euromoonApp {
         String IDNumber = scan.nextLine();
         System.out.println("Geboortedatum : (format : yyyy-MM-dd)");
         LocalDate birthdate = LocalDate.parse(scan.nextLine());
+        System.out.println("1");
 
         return new Passenger(name, lastName, IDNumber, birthdate);
     }
@@ -316,7 +324,7 @@ public class euromoonApp {
 
         String filename = selectedTrip.getDepartureStation() + "_" + selectedTrip.getArrivalStation() + "_" + selectedTrip.getDate() + "T" + safeTime + ".txt";
 
-        try (FileWriter writer = new FileWriter(filename)) {
+        try (FileWriter writer = new FileWriter("ticket/" + filename)) {
             if (selectedTrip.getPassengerList().isEmpty()) {
                 writer.write("Er zijn nog geen passagiers voor deze reis.\n");
             } else {
