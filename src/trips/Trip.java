@@ -20,7 +20,6 @@ public class Trip {
     private Driver driver;
     private List<Stewart> stewartList;
     private List<Passenger> passengerList;
-    private TypeClass typeClass;
 
     public Trip(String departureStation, String arrivalStation, LocalDate date, LocalTime tripTime, Train train, Driver driver, List<Stewart> stewartList) {
 
@@ -81,6 +80,11 @@ public class Trip {
         this.train = train;
     }
 
+    /**
+     * verkoopt ticket wanneer aan de hand van methode addpassenger() die controleert of er genoeg plaats is of niet
+     * @param passenger
+     * @return fals je niet hebt kunne verkopen en true als je wel hebt kunnen verkopen
+     */
     public boolean sellTicket(Passenger passenger){
         if (train == null){
             System.out.println("Sorry er kan geet tickets verkocht worden , geen trein is gekoppeld");

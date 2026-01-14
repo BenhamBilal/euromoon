@@ -30,6 +30,11 @@ public class Train {
         return currentPassengers;
     }
 
+    /**
+     *
+     * @param passenger
+     * @return true als er genoeg plaats in de locomotief en false als er geen plaats is
+     */
     public boolean addPassenger(Passenger passenger){
         if (currentPassengers >= getMaxCapacityIncludedLuggage()){
             System.out.println("geen plaats meer");

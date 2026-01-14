@@ -97,7 +97,7 @@ public class euromoonApp {
     }
 
     /**
-     * Maakt een passagier en vraagt oa: naam , achternaam ,rijksregister nummer, geboorte datum
+     * Maakt een passagier object en vraagt oa: naam , achternaam ,rijksregister nummer, geboorte datum
      * @return ObjectPassagier aan de hand van constructor
      */
     public Passenger creatPassenger() {
@@ -115,6 +115,9 @@ public class euromoonApp {
         return new Passenger(name, lastName, IDNumber, birthdate);
     }
 
+    /**
+     * Maakt object reis en vraagt gegevens, er voor zorgen dat er minimaal 3 stewerds en 1 bestuurder voor dat een reis aangemaakt word.
+     */
     public void creatTrip() {
 
         List<Stewart> stewardList = new ArrayList<>();
@@ -189,6 +192,9 @@ public class euromoonApp {
 
     }
 
+    /**
+     * Maakt een trein en voegt het in arrayList treinList
+     */
     public void creatTrain() {
         Locomotive locomotive = null;
 
@@ -215,6 +221,10 @@ public class euromoonApp {
 
     }
 
+    /**
+     * @throws NumberFormatException wanneer de input niet een number format is
+     * @throws IndexOutOfBoundsException wanneer de inputindex niet in de lijst bestaat
+     */
     public void bookTrain() {
         if (tripList.isEmpty()) {
             System.out.println("Geen reizen beschikbaar");
@@ -273,6 +283,10 @@ public class euromoonApp {
         selectedTrip.setTrain(selectedTrain);
     }
 
+
+    /**
+     * verkoopt ticket aan de hand van methode "sellTicket()" van class Trip waar deze gebruikt methode "addPassenger() van Class Trein en met deze methode can je controleren of er plaats is of niet in de trein"
+     */
     public void sellTicket(){
         if (tripList.isEmpty()) {
             System.out.println("Geen reizen beschikbaar");
@@ -300,6 +314,10 @@ public class euromoonApp {
         selectedTrip.sellTicket(selectedPassenger);
     }
 
+    /**
+     * Afdrukking van boarding lijst aan de hand van een FileWriter
+     * @throws IOException wanneer er geen output van genereerd
+     */
     public void printBoardingList() throws IOException {
         System.out.println("Kies een reis om de boardinglijst te printen:");
         for (int i = 0; i < tripList.size(); i++) {
