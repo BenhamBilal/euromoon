@@ -5,6 +5,9 @@ import persons.StaffMember;
 import java.time.LocalDate;
 
 
+/**
+ * houd gegevens van een personeelslid
+ */
 public class Stewart extends StaffMember {
 
 

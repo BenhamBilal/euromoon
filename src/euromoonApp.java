@@ -17,6 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
+/**
+ * Hooftmenu daarmee start de hele project
+ */
 public class euromoonApp {
 
     List<Passenger> passengerList = new ArrayList<Passenger>();
@@ -27,6 +31,10 @@ public class euromoonApp {
     Scanner scan = new Scanner(System.in);
 
 
+    /**
+     *
+     * @throws IOException de running mislukt en dat er een probleem met de invoer en uitvoer
+     */
     public void start() throws IOException {
 
         boolean running = true;

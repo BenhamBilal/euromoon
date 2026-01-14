@@ -5,8 +5,13 @@ import persons.passengers.Passenger;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * houd bij gegevent om trein te booken
+ */
 public class Train {
-
+    /**
+     * houd bij gegevent om trein te booken
+     */
     private Locomotive locomotive;
     private int currentPassengers;
     private List<String> wagonList;
@@ -32,7 +37,7 @@ public class Train {
 
     /**
      *
-     * @param passenger
+     * @param passenger om een passagier in een trein te koppelen
      * @return true als er genoeg plaats in de locomotief en false als er geen plaats is
      */
     public boolean addPassenger(Passenger passenger){

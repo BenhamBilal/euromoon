@@ -10,6 +10,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Trip houd :vertrek station , aankomststation,tijdstip,datum,trein bij en zorgd dat constructor is gemaakt alleen maa als er minimum 1 bestuurder en minimum 3 stewards gebookd zijn
+ */
 public class Trip {
 
     private String departureStation;
@@ -21,6 +24,10 @@ public class Trip {
     private List<Stewart> stewartList;
     private List<Passenger> passengerList;
 
+
+    /**
+     * Trip houd :vertrek station , aankomststation,tijdstip,datum,trein bij en zorgd dat constructor is gemaakt alleen maa als er minimum 1 bestuurder en minimum 3 stewards gebookd zijn
+     */
     public Trip(String departureStation, String arrivalStation, LocalDate date, LocalTime tripTime, Train train, Driver driver, List<Stewart> stewartList) {
 
         if (driver == null) {
@@ -73,6 +80,11 @@ public class Trip {
         return train;
     }
 
+    /**
+     * methode om trein te registreren
+     * @throws IllegalStateException wanneer trein niets bevat
+     * @param train trainte registreren
+     */
     public void setTrain(Train train) {
         if(this.train != null){
             throw new IllegalStateException("Deze reis beval een trein");
@@ -82,7 +94,7 @@ public class Trip {
 
     /**
      * verkoopt ticket wanneer aan de hand van methode addpassenger() die controleert of er genoeg plaats is of niet
-     * @param passenger
+     * @param passenger de passagier die aan de trein wordt toegevoegd
      * @return fals je niet hebt kunne verkopen en true als je wel hebt kunnen verkopen
      */
     public boolean sellTicket(Passenger passenger){

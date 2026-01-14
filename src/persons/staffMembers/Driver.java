@@ -6,6 +6,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * houd gegevens van een personeelslid
+ */
 public class Driver extends StaffMember {
 
     public Driver(String name, String lastName, String IDNumber, LocalDate birthDate) {

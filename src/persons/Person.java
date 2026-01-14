@@ -3,6 +3,9 @@ package persons;
 import java.time.LocalDate;
 import java.util.Objects;
 
+/**
+ * Class personen houd gegevens van een persoon bij maar aan gezien dat deze een abstract class is gaat het niet instancierer
+ */
 public abstract class Person {
 
     private String name;

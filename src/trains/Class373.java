@@ -1,8 +1,15 @@
 package trains;
 
+/**
+ * Class soort locomotief naargelang maximum aantalcapaciteit wagon
+ */
 public class Class373 implements Locomotive{
+    public Class373() {
+    }
 
-
+    /**
+     * Class soort locomotief naargelang maximum aantalcapaciteit wagon
+     */
     @Override
     public int getMaxWagon() {
 
